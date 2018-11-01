@@ -1,20 +1,18 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { ImageminWebpackPlugin } = require('imagemin-webpack')
-const imageminGifsicle = require('imagemin-gifsicle')
-const imageminJpegtran = require('imagemin-jpegtran')
-const imageminOptipng = require('imagemin-optipng')
-const imageminSvgo = require('imagemin-svgo')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const glob = require('glob')
 
-const ASSET_PATH = process.env.ASSET_PATH || '/';
+const PROJECT_PATH = path.resolve(__dirname, '../build')
+const ASSET_PATH = process.env.ASSET_PATH || '/'
 
 module.exports = {
   entry: {
     'js/main': './src/js/main.js',
   },
   output: {
-    path: path.resolve(__dirname, '../build'),
+    path: PROJECT_PATH,
     publicPath: ASSET_PATH,
     filename: '[name].js'
   },
@@ -30,8 +28,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath : 'img/'
+              hash: 'sha512',
+              digest: 'hex',
+              name: 'img/[hash].[ext]',
             },
           },
         ],
@@ -43,22 +42,12 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html'
     }),
-    new ImageminWebpackPlugin({
-      imageminOptions: {
-        plugins: [
-          imageminGifsicle({
-            interlaced: true
-          }),
-          imageminJpegtran({
-            progressive: true
-          }),
-          imageminOptipng({
-            optimizationLevel: 5
-          }),
-          imageminSvgo({
-            removeViewBox: true
-          })
-        ]
+    new ImageminPlugin({
+      externalImages: {
+        context: 'src',
+        sources: glob.sync('src/images/**/*'),
+        destination: 'build/img',
+        fileName: '[name].[ext]'
       }
     })
   ]
