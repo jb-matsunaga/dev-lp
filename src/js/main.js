@@ -1,3 +1,3 @@
-import test from '../img/logo.png'
+import '../scss/common.scss';
 
-console.warn('--hello--', test)
+console.info('test')
