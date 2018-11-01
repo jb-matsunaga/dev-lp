@@ -10,15 +10,23 @@ const ASSET_PATH = process.env.ASSET_PATH || '/'
 
 module.exports = {
   entry: {
-    'js/main': './src/js/main.js',
+    'index': './src/js/index.js',
+    'case': './src/js/case.js',
   },
   output: {
     path: PROJECT_PATH,
     publicPath: ASSET_PATH,
-    filename: '[name].js'
+    filename: 'js/[name].js'
   },
   module: {
     rules: [
+      {
+        test: /\.ejs$/,
+        use  : [
+          'html-loader',
+          'ejs-html-loader'
+        ]
+      },
       {
         test: /\.s?css$/,
         use: [ 
@@ -45,18 +53,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/index.html'
+      chunks: ['index'],
+      template: 'src/ejs/views/index/index.ejs'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'case.html',
+      chunks: ['case'],
+      template: 'src/ejs/views/case/index.ejs'
+    }),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new MiniCssExtractPlugin({
       filename: 'css/common.css'
-    }),
-    new ImageminPlugin({
-      externalImages: {
-        context: 'src',
-        sources: glob.sync('src/images/**/*'),
-        destination: 'build/img',
-        fileName: '[name].[ext]'
-      }
     })
   ]
 }
