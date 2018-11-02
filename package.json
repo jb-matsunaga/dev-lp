@@ -5,6 +5,9 @@
   "author": "matsunagakenta <k_matsunaga@waku-2.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
     "cpx": "^1.5.0",
     "css-loader": "^1.0.1",
     "ejs": "^2.6.1",
@@ -33,5 +36,8 @@
     "build-dist": "webpack --config webpack/prod.config.js",
     "clean": "rimraf build dist",
     "copy-dist": "mkdirp dist && cpx \"build/**/*\" dist/"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

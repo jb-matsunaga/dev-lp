@@ -1,3 +1,4 @@
-import '../scss/common.scss';
+import $ from 'jquery'
+import '../scss/common.scss'
 
-console.info('top')
+console.info('top', $)

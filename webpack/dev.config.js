@@ -9,7 +9,7 @@ module.exports = merge(common, {
     port: 4003,
     host: '0.0.0.0',
     open: true,
-    openPage: 'index.html',
+    openPage: 'top.html',
     disableHostCheck: true,
   }
 })

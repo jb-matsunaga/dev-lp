@@ -36,6 +36,7 @@ module.exports = merge(html, {
           { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
