@@ -1,4 +1,8 @@
-<%- include(`../../layout/_head`) -%>
+<%
+  var title = 'case';
+%>
+
+<%- include(`../../layout/_head`, { title }) -%>
   <nav class="m-nav"><img src='../../images/logo.png' /></nav>
   <main><%= 'Generated with webpack!' %></main>
 <%- include(`../../layout/_footer`) -%>

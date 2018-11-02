@@ -1,16 +1,17 @@
 const webpack = require('webpack')
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob')
+const merge = require('webpack-merge')
+const html = require('./html.config.js')
 
 const PROJECT_PATH = path.resolve(__dirname, '../build')
 const ASSET_PATH = process.env.ASSET_PATH || '/'
 
-module.exports = {
+module.exports = merge(html, {
   entry: {
-    'index': './src/js/index.js',
+    'top': './src/js/top.js',
     'case': './src/js/case.js',
   },
   output: {
@@ -51,19 +52,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      chunks: ['index'],
-      template: 'src/ejs/views/index/index.ejs'
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'case.html',
-      chunks: ['case'],
-      template: 'src/ejs/views/case/index.ejs'
-    }),
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new MiniCssExtractPlugin({
       filename: 'css/common.css'
     })
   ]
-}
+})
