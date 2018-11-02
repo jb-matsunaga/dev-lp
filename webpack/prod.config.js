@@ -11,9 +11,9 @@ module.exports = merge(common, {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  }
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
 })

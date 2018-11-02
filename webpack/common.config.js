@@ -1,8 +1,6 @@
-const webpack = require('webpack')
 const path = require('path')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const glob = require('glob')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const merge = require('webpack-merge')
 const html = require('./html.config.js')
 
@@ -11,26 +9,23 @@ const ASSET_PATH = process.env.ASSET_PATH || '/'
 
 module.exports = merge(html, {
   entry: {
-    'top': './src/js/top.js',
-    'case': './src/js/case.js',
+    top: './src/js/top.js',
+    case: './src/js/case.js',
   },
   output: {
     path: PROJECT_PATH,
     publicPath: ASSET_PATH,
-    filename: 'js/[name].js'
+    filename: 'js/[name].js',
   },
   module: {
     rules: [
       {
         test: /\.ejs$/,
-        use  : [
-          'html-loader',
-          'ejs-html-loader'
-        ]
+        use: ['html-loader', 'ejs-html-loader'],
       },
       {
         test: /\.s?css$/,
-        use: [ 
+        use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
@@ -55,7 +50,7 @@ module.exports = merge(html, {
   plugins: [
     new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
     new MiniCssExtractPlugin({
-      filename: 'css/common.css'
-    })
-  ]
+      filename: 'css/common.css',
+    }),
+  ],
 })
