@@ -11,7 +11,8 @@
     "clean": "rimraf build dist",
     "copy-dist": "mkdirp dist && cpx \"build/**/*\" dist/",
     "lint": "eslint .",
-    "fix": "eslint . --fix"
+    "fix": "eslint . --fix",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -33,7 +34,9 @@
     "glob": "^7.1.3",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.3",
     "imagemin-webpack-plugin": "^2.3.0",
+    "lint-staged": "^8.0.4",
     "make-dir": "^1.3.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
@@ -50,5 +53,11 @@
   },
   "dependencies": {
     "jquery": "^3.3.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
