@@ -1,5 +1,7 @@
 // base
+@import 'base/mixins/clearfix';
+@import 'base/utilities/clearfix';
 @import 'base/reset';
 
 // module
-@import 'module/nav';
+@import 'module/nav';;
