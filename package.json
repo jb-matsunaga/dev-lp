@@ -11,7 +11,9 @@
     "clean": "rimraf build dist",
     "copy-dist": "mkdirp dist && cpx \"build/**/*\" dist/",
     "lint": "eslint .",
-    "fix": "eslint . --fix"
+    "fix": "eslint . --fix",
+    "stylelint": "stylelint \"src/scss/**/*.scss\"",
+    "stylefix": "stylelint --fix \"src/scss/**/*.scss\""
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -45,6 +47,9 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.4.0",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
@@ -61,6 +66,7 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
+      "stylelint --fix",
       "git add"
     ]
   }
