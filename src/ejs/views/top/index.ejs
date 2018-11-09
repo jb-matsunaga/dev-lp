@@ -3,6 +3,22 @@
 %>
 
 <%- include(`../../layout/_head`, { title }) -%>
-  <nav class="m-nav"><img src='../../images/logo.png' /></nav>
-  <main><%= 'Generated with webpack!' %></main>
+
+  <main>
+    <div id="js-tabSwitch" class="c-tabSwitch">
+        <ul class="c-tabSwitch-menu">
+          <li>menu1</li>
+          <li>menu2</li>
+        </ul>
+        <ul class="c-tabSwitch-contents">
+          <li class="contents-default">
+            type1type1type1
+          </li>
+          <li>
+            type2type2type2
+          </li>
+        </ul>
+    </div>
+  </main>
+
 <%- include(`../../layout/_footer`) -%>

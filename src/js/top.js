@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import TabSwitch from './modules/tab-switch'
 import '../scss/common.scss'
 
-console.info('top', $)
+new TabSwitch('#js-tabSwitch').set()

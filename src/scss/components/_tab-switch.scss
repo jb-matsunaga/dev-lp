@@ -1,0 +1,11 @@
+.c-tabSwitch {
+  &-contents {
+    > li {
+      display: none;
+
+      &.contents-default {
+        display: block;
+      }
+    }
+  }
+}
