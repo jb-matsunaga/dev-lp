@@ -1,0 +1,24 @@
+<%
+  var title = 'top';
+%>
+
+<%- include(`../../layout/_head`, { title }) -%>
+
+  <main>
+    <div id="js-tabSwitch" class="c-tabSwitch">
+        <ul class="c-tabSwitch-menu">
+          <li>menu1</li>
+          <li>menu2</li>
+        </ul>
+        <ul class="c-tabSwitch-contents">
+          <li class="show">
+            type1type1type1
+          </li>
+          <li>
+            type2type2type2
+          </li>
+        </ul>
+    </div>
+  </main>
+
+<%- include(`../../layout/_footer`) -%>
