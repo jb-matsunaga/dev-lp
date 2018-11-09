@@ -34,8 +34,8 @@ class TabSwitch {
   handleMenuOnClick(elem) {
     $(elem).on('click', () => {
       const targetIndex = $(elem).data('target')
-      $(this.tabSwitchConstent).hide()
-      $(this.contentsArray[targetIndex]).show()
+      $(this.tabSwitchConstent).removeClass('show')
+      $(this.contentsArray[targetIndex]).addClass('show')
     })
   }
 }
