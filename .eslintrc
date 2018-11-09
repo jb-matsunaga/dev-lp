@@ -2,15 +2,18 @@
   "env": {
     "es6": true
   },
-  "extends": [
-    "standard",
-    "plugin:prettier/recommended"
-  ],
+  "extends": [ "standard", "prettier" ],
+  "plugins": [ "prettier" ],
   "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
     "prettier/prettier": [
       "error",
       {
         "singleQuote": true,
+        "semi": false,
+        "bracketSpacing": true,
         "trailingComma": "es5"
       }
     ]
