@@ -1,3 +1,3 @@
 import '../scss/common.scss'
 
-console.info('--case--')
+console.warn('--case--')
