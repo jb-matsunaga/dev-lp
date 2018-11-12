@@ -5,20 +5,41 @@
 <%- include(`../../layout/_head`, { title }) -%>
 
   <main>
-    <div id="js-tabSwitch" class="c-tabSwitch">
-        <ul class="c-tabSwitch-menu">
-          <li>menu1</li>
-          <li>menu2</li>
-        </ul>
-        <ul class="c-tabSwitch-contents">
-          <li class="show">
-            type1type1type1
-          </li>
-          <li>
-            type2type2type2
-          </li>
-        </ul>
-    </div>
+    <section>
+        <h2>tabSwitc</h2>
+        <div id="js-tabSwitch" class="c-tabSwitch">
+            <ul class="c-tabSwitch-menu">
+              <li>menu1</li>
+              <li>menu2</li>
+            </ul>
+            <ul class="c-tabSwitch-contents">
+              <li class="show">
+                type1type1type1
+              </li>
+              <li>
+                type2type2type2
+              </li>
+            </ul>
+        </div>
+    </section>
+    <hr >
+    <section>
+      <h2>Accordion</h2>
+      <ul id="js-accordion" class="c-accordion">
+        <li class="c-accordion-items">
+          <div class="items-header" data-toggle="collapse" data-target="#js-target01">ヘッダー1</div>
+          <div class="items-content show" id="js-target01">コンテンツ1</div>
+        </li>
+        <li class="c-accordion-items">
+          <div class="items-header" data-toggle="collapse" data-target="#js-target02">ヘッダー2</div>
+          <div class="items-content" id="js-target02">コンテンツ2</div>
+        </li>
+        <li class="c-accordion-items">
+          <div class="items-header" data-toggle="collapse" data-target="#js-target03">ヘッダー3</div>
+          <div class="items-content" id="js-target03">コンテンツ3</div>
+        </li>
+      </ul>
+    </section>
   </main>
 
 <%- include(`../../layout/_footer`) -%>

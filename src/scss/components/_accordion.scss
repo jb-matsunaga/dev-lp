@@ -1,0 +1,26 @@
+.c-accordion {
+  &-items {
+    border: 1px solid #eee;
+  }
+
+  .items-header {
+    padding: 16px;
+  }
+
+  .items-content {
+    overflow: hidden;
+    height: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.2s ease-in-out;
+
+    &.show {
+      height: auto;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

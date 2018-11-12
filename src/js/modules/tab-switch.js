@@ -2,12 +2,12 @@ import $ from 'jquery'
 
 class TabSwitch {
   constructor(element) {
-    this.$tabSwitchWrapper = $(element)
-    this.tabSwitchMenu = this.$tabSwitchWrapper
+    this.$wrapper = $(element)
+    this.tabSwitchMenu = this.$wrapper
       .find('ul')
       .first()
       .find('li')
-    this.tabSwitchConstent = this.$tabSwitchWrapper
+    this.tabSwitchConstent = this.$wrapper
       .find('ul')
       .last()
       .find('li')
